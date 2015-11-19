@@ -1,7 +1,9 @@
-﻿using System;
-using System.Net;
+﻿using System.Net;
 namespace Canducci.Gravatar
 {
+    /// <summary>
+    /// Class Avatar Client
+    /// </summary>
     public sealed class AvatarClient : IAvatarClient
     {
         public WebClient _web;
@@ -17,12 +19,6 @@ namespace Canducci.Gravatar
         {
             return _web.DownloadData(address);
         }
-#if NET40
-        public async System.Threading.Tasks.Task<byte[]> DownloadAsync(string address)
-        {
-            return await _web.DownloadDataTaskAsync(address);
-        }
-#endif
         public void Dispose()
         {
             _web.Dispose();

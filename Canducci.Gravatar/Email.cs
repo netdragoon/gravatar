@@ -2,6 +2,9 @@
 using Canducci.Gravatar.Validation;
 namespace Canducci.Gravatar
 {
+    /// <summary>
+    /// Class E-mail
+    /// </summary>
     public sealed class Email : IEmail
     {
         public Email(string email)

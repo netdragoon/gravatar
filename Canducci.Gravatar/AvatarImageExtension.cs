@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Canducci.Gravatar
+﻿namespace Canducci.Gravatar
 {
+    /// <summary>
+    /// Enum Avatar Imagem Extension
+    /// </summary>
     public enum AvatarImageExtension
     {
         Gif,
