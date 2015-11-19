@@ -3,7 +3,7 @@ using System.IO;
 namespace Canducci.Gravatar
 {
     public class Avatar : IAvatar
-    {        
+    {
         protected IAvatarClient _client;        
         public Avatar(string email)
         {
@@ -36,6 +36,10 @@ namespace Canducci.Gravatar
         {
             try
             {
+                if (!Directory.Exists(folder))
+                {
+                    Directory.CreateDirectory(folder);
+                }
                 File.WriteAllBytes(Path(folder, filename, Configuration), Image);
                 return true;
             }
@@ -63,7 +67,6 @@ namespace Canducci.Gravatar
             if (exists == false) path = null;
             return exists;
         }
-
         private void Load()
         {
             Image = _client.Download(Configuration.Url());
