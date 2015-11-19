@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Canducci.Gravatar.4.5.1", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Canducci.Gravatar.Console4.5.1", "Canducci.Gravatar.Console4.5.1\Canducci.Gravatar.Console4.5.1.csproj", "{A5EE8031-9E92-4EE2-99A0-BF513FF1704E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Canducci.Gravatar.Test", "Canducci.Gravatar.Test\Canducci.Gravatar.Test.csproj", "{17300DB0-31FF-4255-9E46-BB3E82AF12AA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{A5EE8031-9E92-4EE2-99A0-BF513FF1704E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A5EE8031-9E92-4EE2-99A0-BF513FF1704E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A5EE8031-9E92-4EE2-99A0-BF513FF1704E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17300DB0-31FF-4255-9E46-BB3E82AF12AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17300DB0-31FF-4255-9E46-BB3E82AF12AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17300DB0-31FF-4255-9E46-BB3E82AF12AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17300DB0-31FF-4255-9E46-BB3E82AF12AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
