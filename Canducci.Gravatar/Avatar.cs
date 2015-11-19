@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-
 namespace Canducci.Gravatar
 {
     public class Avatar : IAvatar
@@ -45,10 +44,11 @@ namespace Canducci.Gravatar
                 throw ex;
             }                       
         }
-        private void Load()
+
+        public bool SaveAs(string folder)
         {
-            Image = _client.Download(Configuration.Url());
-        }
+            return SaveAs(folder, Configuration.Email.Hash);
+        }        
 
         public void Dispose()
         {            
@@ -56,16 +56,22 @@ namespace Canducci.Gravatar
             _client.Dispose();
         }
 
-        private static string Path(string folder, string filename, IAvatarConfiguration configuration)
-        {
-            return string.Format("{0}{1}.{2}.{3}", folder, filename, configuration.Width, configuration.Extension.ToLower());
-        }
         public static bool Exists(IAvatarConfiguration configuration, string folder, string filename, out string path)
         {
-            path = Path(folder, filename, configuration);   
+            path = Path(folder, filename, configuration);
             bool exists = File.Exists(path);
             if (exists == false) path = null;
             return exists;
         }
+
+        private void Load()
+        {
+            Image = _client.Download(Configuration.Url());
+        }
+        private static string Path(string folder, string filename, IAvatarConfiguration configuration)
+        {
+            return string.Format("{0}{1}.{2}.{3}", folder, filename, configuration.Width, configuration.Extension.ToLower());
+        }
+        
     }
 }
