@@ -1,2 +1,4 @@
 language: csharp
 solution: Canducci.Gravatar.sln
+before_install:
+  - sudo apt-get install nunit-console
