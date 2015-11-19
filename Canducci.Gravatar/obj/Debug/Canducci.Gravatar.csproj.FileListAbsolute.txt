@@ -1,0 +1,4 @@
+D:\PackageNet\Canducci.Gravatar\Canducci.Gravatar\bin\Debug\Canducci.Gravatar.dll
+D:\PackageNet\Canducci.Gravatar\Canducci.Gravatar\bin\Debug\Canducci.Gravatar.pdb
+D:\PackageNet\Canducci.Gravatar\Canducci.Gravatar\obj\Debug\Canducci.Gravatar.dll
+D:\PackageNet\Canducci.Gravatar\Canducci.Gravatar\obj\Debug\Canducci.Gravatar.pdb
