@@ -1,7 +1,0 @@
-D:\PackageNet\Canducci.Gravatar\Canducci.Gravatar.Console\bin\Debug\Canducci.Gravatar.Console.exe
-D:\PackageNet\Canducci.Gravatar\Canducci.Gravatar.Console\bin\Debug\Canducci.Gravatar.Console.pdb
-D:\PackageNet\Canducci.Gravatar\Canducci.Gravatar.Console\bin\Debug\Canducci.Gravatar.dll
-D:\PackageNet\Canducci.Gravatar\Canducci.Gravatar.Console\bin\Debug\Canducci.Gravatar.pdb
-D:\PackageNet\Canducci.Gravatar\Canducci.Gravatar.Console\obj\Debug\Canducci.Gravatar.Console.csprojResolveAssemblyReference.cache
-D:\PackageNet\Canducci.Gravatar\Canducci.Gravatar.Console\obj\Debug\Canducci.Gravatar.Console.exe
-D:\PackageNet\Canducci.Gravatar\Canducci.Gravatar.Console\obj\Debug\Canducci.Gravatar.Console.pdb
