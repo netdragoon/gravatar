@@ -24,11 +24,13 @@ Em um projeto ASP NET MVC faça:
 [Route("avatar")]
 public ActionResult AvatarResult()
 {
-	//Pasta aonde vai ser gravada a imagem
+	//Pasta que vai ser gravada a imagem
     string folder = "/Images/";
-    //Nome da imagem (dado não obrigatório)
+
+    //Nome da imagem
     string filename = "foto";
-    //Tamanho da imagem
+
+    //Tamanho da imagem (pixel)
     int width = 400;
 
     //Instanciando a classe Email
@@ -47,12 +49,11 @@ public ActionResult AvatarResult()
     //Instanciando a classe Avatar
     IAvatar avatar = new Avatar(configuration);
     
-
     //Verificando se já existe a imagem no seu diretório 
     //Se não existir ela baixa uma cópia para o seu diretório web
     if (avatar.Exists(path, filename) == false)
     {             
-          avatar.SaveAs(path, filename);
+        avatar.SaveAs(path, filename);
     }
 
     //Cria o caminho da imagem dentro da sua aplicação web
