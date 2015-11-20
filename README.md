@@ -1,6 +1,10 @@
-# Gravatar
+# Canducci Gravatar
 
-Gravatar
+###(version: 0.0.1)
+
+__http://pt.gravatar.com/__
+
+####Gravatar
 
 [![Travis](https://img.shields.io/travis/netdragoon/gravatar.svg)](https://github.com/netdragoon/gravatar)
 [![NuGet](https://img.shields.io/nuget/dt/Canducci.Gravatar.svg?style=plastic&label=downloads)](https://www.nuget.org/packages/Canducci.Gravatar/)
@@ -99,4 +103,44 @@ public ActionResult AvatarResult()
 </body>
 </html>
 
+```
+___Observação:___ Pode ser usado em WebForms, Web MVC, Forms e Console Application.
+
+###Console Application
+
+```Csharp
+static void Main(string[] args)
+{
+    string folder = "image/";
+    string filename = "foto";
+    int width = 250;
+
+    IEmail email = Email.Parse("exemplo@exemplo.com");
+
+    IAvatarConfiguration configuration =
+        new AvatarConfiguration(
+            email,
+            width,
+            AvatarImageExtension.Jpeg,
+            AvatarRating.R);
+
+    IAvatar avatar = new Avatar(configuration);
+    
+    if (avatar.Exists(folder, filename) == false)
+    {
+        
+        avatar.SaveAs(folder, filename);
+
+        Console.WriteLine("Foto gravada com sucesso !!!");
+
+    }
+    else
+    {
+
+        Console.WriteLine("Foto existente !!!");
+
+    }
+
+    Console.ReadKey();
+}
 ```
