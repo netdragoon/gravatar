@@ -18,7 +18,9 @@ namespace Canducci.Gravatar
         }
         public static string ToLower(this Enum _enum)
         {
-            return _enum.ToString().ToLower();
+            return _enum.
+                ToString()
+                .ToLower();
         }
     }
 }

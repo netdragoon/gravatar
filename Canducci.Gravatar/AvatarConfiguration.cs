@@ -1,6 +1,4 @@
-﻿using System;
-using Canducci.Gravatar.Validation;
-
+﻿using Canducci.Gravatar.Validation;
 namespace Canducci.Gravatar
 {
     public class AvatarConfiguration : IAvatarConfiguration
@@ -89,13 +87,18 @@ namespace Canducci.Gravatar
             Email = email;
             return this;
         }
+        public IAvatarConfiguration SetEmail(string email)
+        {
+            Email = new Email(email);
+            return this;
+        }
         #endregion Methods_Fluents
 
         #region ValidationWidth
         private void ValidateRange(int width)
         {
             Assertion.Range(width, 1, 2048, "Width invalid, only 1 to 2048 pixel is valid");
-        }
+        }        
         #endregion ValidationWidth
     }
 }

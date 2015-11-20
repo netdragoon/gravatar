@@ -1,26 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-
 namespace Canducci.Gravatar.Validation
 {
     public static class Assertion
     {
-        public static void EmailFormat(string Email, string Message)
+        public static void EmailFormat(string email, string message)
         {
 
-            if (string.IsNullOrEmpty(Email))
+            if (string.IsNullOrEmpty(email))
             {
-                throw new InvalidOperationException(Message);
+                throw new InvalidOperationException(message);
             }
 
-            if (!Regex.IsMatch(Email, @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z", RegexOptions.IgnoreCase))
+            if (!IsEmail(email))
             {
-                throw new InvalidOperationException(Message);
+                throw new InvalidOperationException(message);
             }
 
+        }
+        public static bool IsEmail(string email)
+        {
+            return Regex.IsMatch(email, @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z", RegexOptions.IgnoreCase);
         }
         public static void Range(double value, double minimum, double maximum, string message)
         {

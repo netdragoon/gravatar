@@ -4,18 +4,9 @@ namespace Canducci.Gravatar
 {
     public class Avatar : IAvatar
     {
-        #region Property
-        /// <summary>
-        /// AvatarClient Download
-        /// </summary>
-        protected IAvatarClient _client;        
-        /// <summary>
-        /// Configuration Gravatar
-        /// </summary>
-        public IAvatarConfiguration Configuration { get; private set; }
-        /// <summary>
-        /// Email Gravatar
-        /// </summary>
+        #region Property        
+        protected IAvatarClient _client;                
+        public IAvatarConfiguration Configuration { get; private set; }        
         public IEmail Email
         {
             get
@@ -23,9 +14,6 @@ namespace Canducci.Gravatar
                 return Configuration.Email;
             }
         }
-        /// <summary>
-        /// Array de Bytes Image Gravatar
-        /// </summary>
         public byte[] Image { get; private set; }
         #endregion Property
 
@@ -50,13 +38,7 @@ namespace Canducci.Gravatar
         }
         #endregion Constructs
 
-        #region SaveAs
-        /// <summary>
-        /// SaveAs
-        /// </summary>
-        /// <param name="folder">Path of file</param>
-        /// <param name="filename">Name of file</param>
-        /// <returns>True / False</returns>
+        #region SaveAs        
         public bool SaveAs(string folder, string filename)
         {
             try
@@ -65,7 +47,9 @@ namespace Canducci.Gravatar
                 {
                     Directory.CreateDirectory(folder);
                 }
+
                 File.WriteAllBytes(Path(folder, filename), Image);
+
                 return true;
             }
             catch (Exception ex)
@@ -73,29 +57,14 @@ namespace Canducci.Gravatar
                 throw ex;
             }                       
         }
-        /// <summary>
-        /// SaveAs
-        /// </summary>
-        /// <param name="folder">Path of file</param>
-        /// <returns>True or False</returns>
+
         public bool SaveAs(string folder)
         {
             return SaveAs(folder, Configuration.Email.Hash);
         }
         #endregion SaveAs
 
-        #region Dispose
-        /// <summary>
-        /// Dispose
-        /// </summary>
-        public void Dispose()
-        {            
-            Configuration = null;
-            _client.Dispose();
-        }
-        #endregion Dispose
-
-        
+        #region Exists
         public bool Exists(string folder, string filename)
         {
             string path = Path(folder, filename);
@@ -106,11 +75,16 @@ namespace Canducci.Gravatar
             string path = Path(folder);
             return File.Exists(path);                        
         }
+        #endregion Exists
 
-        private void Load()
+        #region LoadImage
+        protected void Load()
         {
             Image = _client.Download(Configuration.Url());
         }
+        #endregion LoadImage
+
+        #region PathImage
         public string Path(string folder, string filename)
         {
             return string.Format("{0}{1}.{2}.{3}", folder, filename, Configuration.Width, Configuration.Extension.ToLower());
@@ -119,5 +93,14 @@ namespace Canducci.Gravatar
         {
             return string.Format("{0}{1}.{2}.{3}", folder, Configuration.Email.Hash, Configuration.Width, Configuration.Extension.ToLower());
         }
+        #endregion PathImage
+        
+        #region Dispose       
+        public void Dispose()
+        {
+            Configuration = null;
+            _client.Dispose();
+        }
+        #endregion Dispose
     }
 }

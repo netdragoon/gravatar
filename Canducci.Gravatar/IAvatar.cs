@@ -11,6 +11,6 @@ namespace Canducci.Gravatar
         bool Exists(string folder, string filename);
         bool Exists(string folder);
         string Path(string folder, string filename);
-        string Path(string folder);
+        string Path(string folder);        
     }
 }

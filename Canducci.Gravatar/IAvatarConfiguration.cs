@@ -12,6 +12,7 @@
         IAvatarConfiguration SetAvatarRating(AvatarRating rating);
         IAvatarConfiguration SetWidth(int width);
         IAvatarConfiguration SetEmail(IEmail email);
+        IAvatarConfiguration SetEmail(string email);
         string Url(bool secure = false);
     }
 }

@@ -14,7 +14,7 @@ namespace Canducci.Gravatar.Console4._5._1
             string filename = "foto250a";
             int width = 250;
 
-            IEmail email = new Email("fulviocanducci@hotmail.com");
+            IEmail email = Email.Parse("fulviocanducci@hotmail.com");
 
             IAvatarConfiguration configuration =
                 new AvatarConfiguration(
@@ -24,7 +24,7 @@ namespace Canducci.Gravatar.Console4._5._1
                     AvatarRating.R);
 
             IAvatar avatar = new Avatar(configuration);
-
+            
             if (avatar.Exists(folder, filename) == false)
             {
                 avatar.SaveAs(folder, filename);

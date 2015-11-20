@@ -1,8 +1,5 @@
 ﻿namespace Canducci.Gravatar
-{
-    /// <summary>
-    /// Enum Avatar Default Image
-    /// </summary>
+{    
     public enum AvatarDefaultImage
     {        
         NoImage,

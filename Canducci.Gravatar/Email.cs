@@ -1,10 +1,6 @@
-﻿
-using Canducci.Gravatar.Validation;
+﻿using Canducci.Gravatar.Validation;
 namespace Canducci.Gravatar
-{
-    /// <summary>
-    /// Class E-mail
-    /// </summary>
+{    
     public sealed class Email : IEmail
     {
         public Email(string email)
@@ -15,5 +11,19 @@ namespace Canducci.Gravatar
         }
         public string Hash { get; private set; }
         public string Value { get; private set; }
+        public static IEmail Parse(string value)
+        {
+            return new Email(value);
+        }
+        public static bool TryParse(string value, out IEmail email)
+        {
+            if (Assertion.IsEmail(value))
+            {
+                email = new Email(value);
+                return true;
+            }
+            email = null;
+            return false;
+        }
     }
 }
