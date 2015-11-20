@@ -31,26 +31,26 @@ namespace Canducci.Gravatar.WebMvc.Controllers
         public ActionResult AvatarResult()
         {
             string folder = "/Images/";
-            //string filename = "foto";
+            string filename = "foto";
             int width = 400;
 
             IEmail email = new Email("fulviocanducci@hotmail.com");
             IAvatarConfiguration configuration =
                 new AvatarConfiguration(email, 
                     width, 
-                    AvatarImageExtension.Jpeg, 
+                    AvatarImageExtension.Jpg, 
                     AvatarRating.R);
 
             string path = Server.MapPath(folder);
 
             IAvatar avatar = new Avatar(configuration);
 
-            if (avatar.Exists(path) == false)
+            if (avatar.Exists(path, filename) == false)
             {             
-                  avatar.SaveAs(path);
+                  avatar.SaveAs(path, filename);
             }
 
-            ViewBag.Path = avatar.Path(folder);
+            ViewBag.Path = avatar.Path(folder, filename);
 
             return View();
         }
