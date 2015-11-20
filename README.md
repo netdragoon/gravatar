@@ -1,8 +1,6 @@
 # Canducci Gravatar
 
-###(version: 0.0.1)
-
-__http://pt.gravatar.com/__
+___http://pt.gravatar.com/___
 
 ####Gravatar
 
