@@ -65,7 +65,7 @@ namespace Canducci.Gravatar
                 {
                     Directory.CreateDirectory(folder);
                 }
-                File.WriteAllBytes(Path(folder, filename, Configuration), Image);
+                File.WriteAllBytes(Path(folder, filename), Image);
                 return true;
             }
             catch (Exception ex)
@@ -95,33 +95,29 @@ namespace Canducci.Gravatar
         }
         #endregion Dispose
 
-        #region Exists_Static
-        /// <summary>
-        /// Gravatar
-        /// </summary>
-        /// <param name="configuration">Configuration Gravatar</param>
-        /// <param name="folder">Path of file</param>
-        /// <param name="filename">Name of file</param>
-        /// <param name="path">Out Path of file (Complete)</param>
-        /// <returns></returns>
-        public static bool Exists(IAvatarConfiguration configuration, string folder, string filename, out string path)
+        
+        public bool Exists(string folder, string filename)
         {
-            path = Path(folder, filename, configuration);
-            bool exists = File.Exists(path);
-            if (exists == false) path = null;
-            return exists;
+            string path = Path(folder, filename);
+            return File.Exists(path);
         }
-        #endregion Exists_Static
+        public bool Exists(string folder)
+        {
+            string path = Path(folder);
+            return File.Exists(path);                        
+        }
 
-        #region RoutineAux
         private void Load()
         {
             Image = _client.Download(Configuration.Url());
         }
-        private static string Path(string folder, string filename, IAvatarConfiguration configuration)
+        public string Path(string folder, string filename)
         {
-            return string.Format("{0}{1}.{2}.{3}", folder, filename, configuration.Width, configuration.Extension.ToLower());
+            return string.Format("{0}{1}.{2}.{3}", folder, filename, Configuration.Width, Configuration.Extension.ToLower());
         }
-        #endregion RoutineAux
+        public string Path(string folder)
+        {
+            return string.Format("{0}{1}.{2}.{3}", folder, Configuration.Email.Hash, Configuration.Width, Configuration.Extension.ToLower());
+        }
     }
 }

@@ -11,19 +11,23 @@
             IEmail email = new Email("fulviocanducci@hotmail.com");
 
             IAvatarConfiguration configuration = 
-                new AvatarConfiguration(email, width, AvatarImageExtension.Jpeg, AvatarRating.R);
+                new AvatarConfiguration(
+                    email, 
+                    width, 
+                    AvatarImageExtension.Jpeg, 
+                    AvatarRating.R);
+            
+            IAvatar avatar = new Avatar(configuration);
 
-            string path;
-
-            if (Avatar.Exists(configuration, folder, filename, out path))
+            if (avatar.Exists(folder, filename) == false)
             {
-                System.Console.WriteLine("Foto existente: {0}", path);
+                avatar.SaveAs(folder, filename);
+                System.Console.WriteLine("Foto gravada com sucesso !!!");
             }
             else
             {
-                IAvatar avatar = new Avatar(configuration);
-                avatar.SaveAs(folder, filename);
-                System.Console.WriteLine("Foto gravada com sucesso !!!");
+
+                System.Console.WriteLine("Foto existente !!!");
             }
             
             System.Console.ReadKey();
