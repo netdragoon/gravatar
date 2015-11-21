@@ -20,7 +20,12 @@ PM> Install-Package Canducci.Gravatar
 
 Declare o namespace `using Canducci.Gravatar;` 
 
-###Version 0.0.2 (Recomendado)
+###Version 0.0.2 
+___(Recomendado)___
+
+- Melhoramento no código.
+- Adição da classe AvatarFolder.
+- Aumento do desempenho do código.
 
 ___Em um projeto ASP NET MVC faça:___
 
