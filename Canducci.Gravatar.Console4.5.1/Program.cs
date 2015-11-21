@@ -10,32 +10,21 @@ namespace Canducci.Gravatar.Console4._5._1
     {
         static void Main(string[] args)
         {
-            string folder = "image/";
-            string filename = "foto250a";
-            int width = 250;
-
-            IEmail email = Email.Parse("fulviocanducci@hotmail.com");
-
+            IAvatarFolder folder = new AvatarFolder("image/");
+            IEmail email = new Email("fulviocanducci@hotmail.com");
             IAvatarConfiguration configuration =
-                new AvatarConfiguration(
-                    email,
-                    width,
-                    AvatarImageExtension.Jpeg,
-                    AvatarRating.R);
-
+                new AvatarConfiguration(email, folder, 250, AvatarImageExtension.Jpeg, AvatarRating.R);
             IAvatar avatar = new Avatar(configuration);
             
-            if (avatar.Exists(folder, filename) == false)
+            if (avatar.Exists() == false)
             {
-                avatar.SaveAs(folder, filename);
+                avatar.Save();
                 Console.WriteLine("Foto gravada com sucesso !!!");
             }
             else
             {
-
-                Console.WriteLine("Foto existente !!!");
+                Console.WriteLine("Foto existente: {0}", avatar.Path());
             }
-
             Console.ReadKey();
         }
     }

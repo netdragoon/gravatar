@@ -5,12 +5,11 @@ namespace Canducci.Gravatar
     {        
         IEmail Email { get; }        
         IAvatarConfiguration Configuration { get; }        
-        byte[] Image { get; }           
-        bool SaveAs(string path, string filename);        
-        bool SaveAs(string path);
-        bool Exists(string folder, string filename);
-        bool Exists(string folder);
-        string Path(string folder, string filename);
-        string Path(string folder);        
+        byte[] Image { get; }                   
+        bool Save();
+        bool SaveAs(string folder, string name);
+        bool Exists();
+        string Path();
+        string WebPath();
     }
 }

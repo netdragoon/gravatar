@@ -52,6 +52,9 @@
     <Compile Include="..\Canducci.Gravatar\AvatarDefaultImage.cs">
       <Link>AvatarDefaultImage.cs</Link>
     </Compile>
+    <Compile Include="..\Canducci.Gravatar\AvatarFolder.cs">
+      <Link>AvatarFolder.cs</Link>
+    </Compile>
     <Compile Include="..\Canducci.Gravatar\AvatarImageExtension.cs">
       <Link>AvatarImageExtension.cs</Link>
     </Compile>
@@ -72,6 +75,9 @@
     </Compile>
     <Compile Include="..\Canducci.Gravatar\IAvatarConfiguration.cs">
       <Link>IAvatarConfiguration.cs</Link>
+    </Compile>
+    <Compile Include="..\Canducci.Gravatar\IAvatarFolder.cs">
+      <Link>IAvatarFolder.cs</Link>
     </Compile>
     <Compile Include="..\Canducci.Gravatar\IEmail.cs">
       <Link>IEmail.cs</Link>

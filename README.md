@@ -20,6 +20,71 @@ PM> Install-Package Canducci.Gravatar
 
 Declare o namespace `using Canducci.Gravatar;` 
 
+###Version 0.0.2
+Em um projeto ASP NET MVC faça:
+
+###Exemplo do Código:
+```Csharp
+[Route("avatar")]
+public ActionResult AvatarResult()
+{            
+    //Tamanho da imagem
+    int width = 400;
+
+    //Configuração para Web MVC precisa passar a pasta raiz pelo
+    // Server.MapPath("~"), se for projeto local não há necessidade
+    IAvatarFolder folder = 
+        new AvatarFolder("Images/", Server.MapPath("~"));
+
+    //Email configurado no gravatar.com    
+    IEmail email = 
+        new Email("exemplo@exemplo.com");
+
+    //Configurações    
+    IAvatarConfiguration configuration =
+        new AvatarConfiguration(email, folder, width, 
+                AvatarImageExtension.Jpg, AvatarRating.R);            
+    
+    //classe Avatar
+    IAvatar avatar = new Avatar(configuration);
+
+    //Verifica se já foi baixado a imagem padrão do seu
+    // gravatar.com
+    if (avatar.Exists() == false)
+    {             
+        //se não ele salva mediante as configurações
+        // da classe AvatarFolder.
+        avatar.Save();
+    }
+    
+    //WebPath é o caminho salvo em sua pasta web.
+    ViewBag.Path = "/" + avatar.WebPath();          
+
+    return View();
+}
+```
+###Exemplo de View:
+```HTML
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AvatarResult</title>
+</head>
+<body>
+    <div> 
+        <img src="@ViewBag.Path" />
+    </div>
+</body>
+</html>
+```
+___Observações:___
+    - Se não informar o nome do `filename` será colocado o hash do e-mail
+    - Se for aplicação Web não esquecer de passar o prefix da classe `AvatarFolder`
+        segundo item do construtor.
+
+###Version 0.0.1
+
 Em um projeto ASP NET MVC faça:
 
 ```Csharp
@@ -68,9 +133,6 @@ public ActionResult AvatarResult()
 ###Exemplo de View:
 
 ```HTML
-@{
-    Layout = null;
-}
 <!DOCTYPE html>
 <html>
 <head>
