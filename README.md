@@ -21,7 +21,8 @@ PM> Install-Package Canducci.Gravatar
 Declare o namespace `using Canducci.Gravatar;` 
 
 ###Version 0.0.2
-Em um projeto ASP NET MVC faça:
+
+___Em um projeto ASP NET MVC faça:___
 
 ###Exemplo do Código:
 ```Csharp
@@ -88,7 +89,7 @@ ___
 
 ###Version 0.0.1
 
-Em um projeto ASP NET MVC faça:
+___Em um projeto ASP NET MVC faça:___
 
 ```Csharp
 [Route("avatar")]
@@ -131,6 +132,7 @@ public ActionResult AvatarResult()
 
     return View();
 }
+
 ```
 
 ###Exemplo de View:
