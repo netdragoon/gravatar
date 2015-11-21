@@ -20,7 +20,7 @@ PM> Install-Package Canducci.Gravatar
 
 Declare o namespace `using Canducci.Gravatar;` 
 
-###Version 0.0.2
+###Version 0.0.2 (Recomendado)
 
 ___Em um projeto ASP NET MVC faça:___
 
@@ -34,6 +34,8 @@ public ActionResult AvatarResult()
 
     //Configuração para Web MVC precisa passar a pasta raiz pelo
     // Server.MapPath("~"), se for projeto local não há necessidade
+    // "Images/" pasta da imagem
+    // "Server.MapPath("~")" pasta raiz da sua aplicação Web
     IAvatarFolder folder = 
         new AvatarFolder("Images/", Server.MapPath("~"));
 
@@ -84,6 +86,37 @@ ___Observações:___
     - Se não informar o nome do `filename` será colocado o hash do e-mail
     - Se for aplicação Web não esquecer de passar o prefix da classe `AvatarFolder`
         segundo item do construtor.
+
+###Console Application:
+
+```Csharp
+static void Main(string[] args)
+{
+    //Tamanho da imagem
+    int width = 400;
+
+    IAvatarFolder folder = new AvatarFolder("Images/");
+
+    IEmail email = new Email("exemplo@exemplo.com");
+
+    IAvatarConfiguration configuration =
+        new AvatarConfiguration(email, folder, width, 
+                AvatarImageExtension.Jpeg, AvatarRating.R);
+
+    IAvatar avatar = new Avatar(configuration);
+    
+    if (avatar.Exists() == false)
+    {
+        avatar.Save();
+        Console.WriteLine("Foto gravada com sucesso !!!");
+    }
+    else
+    {
+        Console.WriteLine("Foto existente: {0}", avatar.Path());
+    }
+    Console.ReadKey();
+}
+```
 
 ___
 
@@ -169,7 +202,6 @@ public ActionResult AvatarResult()
 </html>
 
 ```
-___Observação:___ Pode ser usado em WebForms, Web MVC, Forms e Console Application.
 
 ###Console Application
 
@@ -209,3 +241,4 @@ static void Main(string[] args)
     Console.ReadKey();
 }
 ```
+___Observação:___ Pode ser usado em WebForms, Web MVC, Forms e Console Application.
