@@ -84,6 +84,8 @@ ___Observações:___
     - Se for aplicação Web não esquecer de passar o prefix da classe `AvatarFolder`
         segundo item do construtor.
 
+___
+
 ###Version 0.0.1
 
 Em um projeto ASP NET MVC faça:
@@ -205,5 +207,3 @@ static void Main(string[] args)
     Console.ReadKey();
 }
 ```
-
-Esse código é para resgatar a imagem que está como padrão no seu cadastro no gravatar.com, então, após a execução guarde o caminho dessa imagem (`string caminho = avatar.Path(folder, filename);`) em alguma tabela de um banco de dados ou em algum arquivo para que o tráfego da informação na degrade a sua aplicação. A execução desse código todas as vezes faz a pesquisa em seu gravatar.com, aumentando em si a execução do seu código.
