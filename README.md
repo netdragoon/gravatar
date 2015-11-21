@@ -79,6 +79,7 @@ public ActionResult AvatarResult()
 </html>
 ```
 ___Observações:___
+
     - Se não informar o nome do `filename` será colocado o hash do e-mail
     - Se for aplicação Web não esquecer de passar o prefix da classe `AvatarFolder`
         segundo item do construtor.
