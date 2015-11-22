@@ -92,6 +92,37 @@ ___Observações:___
     - Se for aplicação Web não esquecer de passar o prefix da classe `AvatarFolder`
         segundo item do construtor.
 
+###MVC com FileResult
+```Csharp
+[Route("avatarimage")]
+public FileResult AvatarResultByte()
+{
+    int width = 400;
+
+    IAvatarFolder folder = new AvatarFolder("Images/", Server.MapPath("~"));
+    IEmail email = new Email("exemplo@exemplo.com");
+
+    IAvatarConfiguration configuration =
+        new AvatarConfiguration(email, folder, width, 
+            AvatarImageExtension.Jpg, AvatarRating.R);
+
+    IAvatar avatar = new Avatar(configuration);
+
+    if (avatar.Exists() == false)
+    {
+        avatar.Save();
+    }
+
+    return File(avatar.Image, "image/jpg");
+}
+```
+Na view coloque um tag:
+```HTML
+<div>
+    <img src="@Url.Action("AvatarResultByte")" />
+</div>
+```
+
 ###Console Application:
 
 ```Csharp
